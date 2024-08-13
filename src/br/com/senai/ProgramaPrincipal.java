@@ -1,6 +1,8 @@
 package br.com.senai;
 
+import br.com.senai.controller.EnderecoController;
 import br.com.senai.controller.PessoaController;
+import br.com.senai.entity.EnderecoEntity;
 import br.com.senai.entity.PessoaEntity;
 
 import java.util.ArrayList;
@@ -21,8 +23,14 @@ public class ProgramaPrincipal {
         int idade;
         double altura;
 
+        String pais;
+        String estado;
+        String bairro;
+        String cidade;
+
         //Instanciando objeto PessoaController
         PessoaController pessoaController = new PessoaController();
+        EnderecoController enderecoController = new EnderecoController();
 
         do{
             System.out.println("---MENU---");
@@ -51,7 +59,20 @@ public class ProgramaPrincipal {
                     System.out.print("Informe a altura: ");
                     altura = tec.nextDouble();
 
-                    PessoaEntity pessoaEntity = pessoaController.cadastrarPessoa(nome, cpf, email, idade, altura);
+                    System.out.print("Informe o pais: ");
+                    tec.nextLine();
+                    pais = tec.nextLine();
+                    System.out.print("Informe o estado: ");
+                    estado = tec.nextLine();
+                    System.out.print("Informe o bairro: ");
+                    bairro = tec.nextLine();
+                    System.out.print("Informe a cidade: ");
+                    cidade = tec.nextLine();
+
+                    EnderecoEntity endereco = enderecoController.cadastrarEndereco(pais, estado, bairro, cidade);
+
+//                    PessoaEntity pessoaEntity = pessoaController.cadastrarPessoa(nome, cpf, email, idade, altura);
+                    PessoaEntity pessoaEntity = pessoaController.cadastrarPessoa(nome, cpf, email, idade, altura, endereco);
                     pessoas.add(pessoaEntity);
                     break;
 

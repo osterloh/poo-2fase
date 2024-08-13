@@ -1,5 +1,6 @@
 package br.com.senai.service;
 
+import br.com.senai.entity.EnderecoEntity;
 import br.com.senai.entity.PessoaEntity;
 
 import java.util.List;
@@ -14,11 +15,11 @@ public class PessoaService {
         PessoaEntity pessoaEntity = new PessoaEntity();
 
         //pessoaEntity.nome = Pedro;
-        pessoaEntity.nome = nome;
-        pessoaEntity.cpf = cpf;
-        pessoaEntity.email = email;
-        pessoaEntity.idade = idade;
-        pessoaEntity.altura = altura;
+        pessoaEntity.setNome(nome);
+        pessoaEntity.setCpf(cpf);
+        pessoaEntity.setEmail(email);
+        pessoaEntity.setIdade(idade);
+        pessoaEntity.setAltura(altura);
         return pessoaEntity;
 
 //        System.out.println("Nome: " + pessoaEntity.nome);
@@ -60,6 +61,18 @@ public class PessoaService {
 
     }
 
+    public PessoaEntity cadastrarPessoa(String nome, String cpf, String email, int idade, double altura, EnderecoEntity endereco) {
+        PessoaEntity pessoaEntity = new PessoaEntity();
+
+        pessoaEntity.setNome(nome);
+        pessoaEntity.setCpf(cpf);
+        pessoaEntity.setEmail(email);
+        pessoaEntity.setIdade(idade);
+        pessoaEntity.setAltura(altura);
+        pessoaEntity.setEndereco(endereco);
+        return pessoaEntity;
+    }
+
     public void listarPessoas(List<PessoaEntity> pessoas){
 //        for
 //        foreach
@@ -71,11 +84,16 @@ public class PessoaService {
 //        }
         System.out.println("Pessoas cadastradas");
         pessoas.forEach(pessoa -> {
-            System.out.println("Nome: " + pessoa.nome);
-            System.out.println("CPF: " + pessoa.cpf);
-            System.out.println("E-Mail: " + pessoa.email);
-            System.out.println("Idade: " + pessoa.idade);
-            System.out.println("Altura: " + pessoa.altura);
+            System.out.println("Nome: " + pessoa.getNome());
+            System.out.println("CPF: " + pessoa.getCpf());
+            System.out.println("E-Mail: " + pessoa.getEmail());
+            System.out.println("Idade: " + pessoa.getIdade());
+            System.out.println("Altura: " + pessoa.getAltura());
+            System.out.println("--- ENDEREÇO ---");
+            System.out.println("Pais: " + pessoa.getEndereco().getPais());
+            System.out.println("Estado: " + pessoa.getEndereco().getEstado());
+            System.out.println("Bairro: " + pessoa.getEndereco().getBairro());
+            System.out.println("Cidade: " + pessoa.getEndereco().getCidade());
             System.out.println("------------------");
         });
     }
@@ -86,7 +104,7 @@ public class PessoaService {
     public PessoaEntity editarPessoa(PessoaEntity pessoaEntity){
         System.out.print("Informe o novo nome: ");
         String nome = tec.nextLine();
-        pessoaEntity.nome = nome;
+        pessoaEntity.setNome(nome);
         return pessoaEntity;
     }
 
