@@ -9,6 +9,24 @@ public class PessoaEntity {
 
     private EnderecoEntity endereco;
 
+    public PessoaEntity(){
+
+    }
+
+    public PessoaEntity(String nome, String cpf, String email, int idade, double altura, EnderecoEntity endereco){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.idade = idade;
+        this.altura = altura;
+        this.endereco = endereco;
+    }
+
+    public PessoaEntity(String nome, int idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
     public void setNome(String nome){
         this.nome = nome;
     }

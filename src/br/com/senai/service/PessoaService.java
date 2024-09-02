@@ -12,13 +12,14 @@ public class PessoaService {
 
     public PessoaEntity cadastrarPessoa(String nome, String cpf, String email, int idade, double altura){
         //Instânciando objeto PessoaEntity
-        PessoaEntity pessoaEntity = new PessoaEntity();
+//        PessoaEntity pessoaEntity = new PessoaEntity();
+        PessoaEntity pessoaEntity = new PessoaEntity(nome, idade);
 
         //pessoaEntity.nome = Pedro;
-        pessoaEntity.setNome(nome);
+//        pessoaEntity.setNome(nome);
         pessoaEntity.setCpf(cpf);
         pessoaEntity.setEmail(email);
-        pessoaEntity.setIdade(idade);
+//        pessoaEntity.setIdade(idade);
         pessoaEntity.setAltura(altura);
         return pessoaEntity;
 
@@ -62,14 +63,15 @@ public class PessoaService {
     }
 
     public PessoaEntity cadastrarPessoa(String nome, String cpf, String email, int idade, double altura, EnderecoEntity endereco) {
-        PessoaEntity pessoaEntity = new PessoaEntity();
+//        PessoaEntity pessoaEntity = new PessoaEntity();
+        PessoaEntity pessoaEntity = new PessoaEntity(nome, cpf, email, idade, altura, endereco);
 
-        pessoaEntity.setNome(nome);
-        pessoaEntity.setCpf(cpf);
-        pessoaEntity.setEmail(email);
-        pessoaEntity.setIdade(idade);
-        pessoaEntity.setAltura(altura);
-        pessoaEntity.setEndereco(endereco);
+//        pessoaEntity.setNome(nome);
+//        pessoaEntity.setCpf(cpf);
+//        pessoaEntity.setEmail(email);
+//        pessoaEntity.setIdade(idade);
+//        pessoaEntity.setAltura(altura);
+//        pessoaEntity.setEndereco(endereco);
         return pessoaEntity;
     }
 

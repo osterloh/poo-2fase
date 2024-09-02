@@ -2,6 +2,8 @@ package br.com.senai.entity;
 
 public class EnderecoEntity {
 
+//    https://github.com/osterloh/poo-2fase
+
     private String pais;
     private String estado;
     private String bairro;
