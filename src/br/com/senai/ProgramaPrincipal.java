@@ -1,5 +1,6 @@
 package br.com.senai;
 
+import br.com.ads.Cliente;
 import br.com.senai.controller.EnderecoController;
 import br.com.senai.controller.PessoaController;
 import br.com.senai.entity.EnderecoEntity;
